@@ -6,9 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drum Player Paul</title>
     <style>
-        body {
-            background: url(drumplayer_background.jpg);
+        html, body {
+            position: relative;
+            width: 100%;
+            height: 100%;
         }
+        
+        body {
+            background: no-repeat url("drumplayer_background.jpg");
+        }
+
+        #player {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65vh;
+            height: 15vh;
+            
+        }
+
+        .key {
+            display: inline-block;
+            font-weight: bold;
+            width: 8vh;
+            height: 8vh;
+            color: white;
+        }
+
+        .sound {
+            color: goldenrod !important;
+        }
+
     </style>
 </head>
 <body>
