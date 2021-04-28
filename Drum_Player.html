@@ -6,85 +6,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drum Player Paul</title>
     <style>
+        /* basic CSS to all */
         html, body {
             position: relative;
             width: 100%;
             height: 100%;
         }
-        
+
         body {
             background: no-repeat url("drumplayer_background.jpg");
         }
 
+        /* put the position in the middle of screen */
         #player {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 65vh;
-            height: 15vh;
-            
+            width: 65%;
+            height: 15%;
         }
 
         .key {
-            display: inline-block;
+            margin: auto;
             font-weight: bold;
             width: 8vh;
             height: 8vh;
             color: white;
+            text-align: center;
+            border: 1px solid grey;
+            border-radius: 4px;
+            margin-top: 15px;
+            text-shadow: 0 0 5px black;
+            transition: all 0.1s;
+        }
+
+        /* wrap each key with box to align each key apart in the same distance each other */
+        .box {
+            float: left;
+            width: 11%;
         }
 
         .sound {
             color: goldenrod !important;
+            display: block;
         }
+
+        kbd {
+            font-size: 3em;
+            display: block;
+        }
+
+        /* when click the keyboard */
+        .playing {
+            transform: scale(1.2);
+            border-color: #ffc600;
+            box-shadow: 0 0 10px #ffc600;
+        }
+
+        .play
 
     </style>
 </head>
 <body>
     <div id="player">
-        <div data-key="65" class="key">
-            <kbd>A</kbd>
-            <span class="sound">Cev</span>
+        <div class="box">
+            <div data-key="65" class="key">
+                <kbd>A</kbd>
+                <span class="sound">Cev</span>
+            </div>
         </div>
 
-        <div data-key="83" class="key">
-            <kbd>S</kbd>
-            <span class="sound">Dry</span>
+        <div class="box">
+            <div data-key="83" class="key">
+                <kbd>S</kbd>
+                <span class="sound">Dry</span>
+            </div>
         </div>
 
-        <div data-key="68" class="key">
-            <kbd>D</kbd>
-            <span class="sound">Dsc</span>
+        <div class="box">
+            <div data-key="68" class="key">
+                <kbd>D</kbd>
+                <span class="sound">Dsc</span>
+            </div>
         </div>
 
-        <div data-key="70" class="key">
-            <kbd>F</kbd>
-            <span class="sound">Heater</span>
+        <div class="box">
+            <div data-key="70" class="key">
+                <kbd>F</kbd>
+                <span class="sound">Heater</span>
+            </div>
+        </div>  
+
+        <div class="box">
+            <div data-key="71" class="key">
+                <kbd>G</kbd>
+                <span class="sound">Kick</span>
+            </div>
         </div>
 
-        <div data-key="71" class="key">
-            <kbd>G</kbd>
-            <span class="sound">Kick</span>
+        <div class="box">
+            <div data-key="72" class="key">
+                <kbd>H</kbd>
+                <span class="sound">Bld</span>
+            </div>
         </div>
 
-        <div data-key="72" class="key">
-            <kbd>H</kbd>
-            <span class="sound">Bld</span>
+        <div class="box">
+            <div data-key="74" class="key">
+                <kbd>J</kbd>
+                <span class="sound">Punchy</span>
+            </div>
         </div>
 
-        <div data-key="74" class="key">
-            <kbd>J</kbd>
-            <span class="sound">Punchy</span>
+        <div class="box">
+            <div data-key="75" class="key">
+                <kbd>K</kbd>
+                <span class="sound">Side</span>
+            </div>
         </div>
 
-        <div data-key="75" class="key">
-            <kbd>K</kbd>
-            <span class="sound">Side</span>
-        </div>
-
-        <div data-key="76" class="key">
-            <kbd>L</kbd>
-            <span class="sound">Brk</span>
+        <div class="box">
+            <div data-key="76" class="key">
+                <kbd>L</kbd>
+                <span class="sound">Brk</span>
+            </div>
         </div>
     </div>
 
@@ -97,5 +143,12 @@
     <audio data-key="74" src="https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3"></audio>
     <audio data-key="75" src="https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3"></audio>
     <audio data-key="76" src="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"></audio>
+
+    <script>
+        window.addEventListener('keydown', function (e) {
+            console.log(e.keyCode)        
+        });
+
+    </script>
 </body>
 </html>
